@@ -31,7 +31,11 @@ jobs:
             uses: actions/upload-artifact@v2
             with:
                 name: modules
-                path: modules/main.py  
+                path: modules/main.py
+          - name: Uploding requirements dot txt
+            uses: actions/upload-artifact@v2
+            with:
+                path: requirements.txt
    test:
        runs-on: ubuntu-16.04
        needs: build
@@ -63,7 +67,7 @@ jobs:
                find . -regex '.*requirements.txt$'
           - name: Downloads module folder from build job
             uses: actions/download-artifact@v2 
-          - name: Checking if download from build job is successful
+          - name: Checking if download from build job is successful by running ls command
             run: |
                ls -l          
           - name: Experimenting with running python program from different directory
