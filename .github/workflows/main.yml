@@ -26,6 +26,4 @@ jobs:
        steps:
           - name: Run-test
             run: |
-                pip install wheel
-                pip install pytest
                 pytest
