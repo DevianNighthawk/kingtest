@@ -20,6 +20,9 @@ jobs:
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
                 pip install pytest
+          - name: checking current directory contents
+            run: |
+               ls -l
    test:
        runs-on: ubuntu-16.04
        needs: build
