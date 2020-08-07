@@ -61,6 +61,11 @@ jobs:
           - name: Finding directory of requirements file
             run: | 
                find . -regex '.*requirements.txt$'
+          - name: Downloads module folder from build job
+            uses: actions/download-artifact@v2 
+          - name: Checking if download from build job is successful
+            run: |
+               ls -l          
           - name: Experimenting with running python program from different directory
             run: |
                 python modules/main.py
