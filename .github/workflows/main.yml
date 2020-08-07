@@ -20,7 +20,21 @@ jobs:
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
                 pip install pytest
-          - name: Run test
+   test:
+       runs-on: ubuntu-16.04
+       needs: build
+       steps:
+          - name: Installing dependencies
             run: |
-               python -m pytest
-
+                sudo apt update
+                sudo apt install software-properties-common
+                sudo add-apt-repository ppa:deadsnakes/ppa
+                sudo apt update
+                sudo apt-get install python3.7-dev
+                sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+                pip install pytest
+          - name: Experimenting with running python program from different directory
+            run: |
+                python modules/main.py
