@@ -72,7 +72,7 @@ jobs:
                ls -l
           - name: Checking content of artifacts folder
             run: |
-               ls -l artifacts          
+               ls -l artifact         
           - name: Experimenting with running python program from different directory
             run: |
                 python modules/main.py
