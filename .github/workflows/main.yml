@@ -21,6 +21,9 @@ jobs:
                 pip install -r requirements.txt
                 pip install pytest
    test:
+       runs-on: ubuntu-16.04
        needs: build
-       run: |
-           pytest
+       steps:
+          - name: Run-test
+            run: |
+                pytest
