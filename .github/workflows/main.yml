@@ -26,6 +26,12 @@ jobs:
           - name: checking current directory contents
             run: |
                ls -l
+            
+          - name: Uploding modules folder
+            uses: actions/upload-artifact@v2
+            with:
+                name: modules
+                path: modules/main.py  
    test:
        runs-on: ubuntu-16.04
        needs: build
