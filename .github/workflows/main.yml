@@ -34,10 +34,12 @@ jobs:
                 sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
                 python -m pip install --upgrade pip
                 pip install pytest
-          - name: Checking our current directory contents
-            run: | 
-                ls -l
+          - name: Checking our current directory
+            run: |
                 pwd
+          - name: Checking directory contents
+            run: |
+               ls 
           - name: Experimenting with running python program from different directory
             run: |
                 python modules/main.py
