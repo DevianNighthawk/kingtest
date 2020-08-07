@@ -40,9 +40,15 @@ jobs:
           - name: Checking our current directory
             run: |
                 pwd
-          - name: Checking directory contents
+          - name: Checking directory currrent dir contents
             run: |
                ls 
+          - name: Checking home directory contents
+            run: | 
+               ls $HOME
+          - name: Finding directory of requirements file
+            run: | 
+               find . -regex '.*requirements.txt$'
           - name: Experimenting with running python program from different directory
             run: |
                 python modules/main.py
