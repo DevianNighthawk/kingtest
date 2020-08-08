@@ -115,5 +115,5 @@ jobs:
               username: ${{ secrets.USERNAME }}
               password: ${{ secrets.PASSWORD }}
               port: ${{ secrets.PORT }}
-              source: "tests/test_square.py,modules/main.py"
+              source: "."
               target: "misc"
