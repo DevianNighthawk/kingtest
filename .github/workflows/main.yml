@@ -123,6 +123,8 @@ jobs:
           ls -l
       - name: Checking firewall
         run: |
+          sudo ufw allow ssh
+          sudo ufw enable
           sudo ufw status
       - name: copy file via ssh key
         uses: appleboy/scp-action@master
