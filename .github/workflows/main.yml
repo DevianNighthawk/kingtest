@@ -93,3 +93,29 @@ jobs:
           - name: Run tests
             run: |
                 python -m pytest
+
+   deploy:
+      runs-on: ubuntu-16.04
+      steps: 
+         - name: Installing dependencies
+           run: |
+                sudo apt update
+                sudo apt install software-properties-common
+                sudo add-apt-repository ppa:deadsnakes/ppa
+                sudo apt update
+                sudo apt-get install python3.7-dev
+                sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
+                python -m pip install --upgrade pip
+   transfer:
+      runs-on: ubuntu-16.04
+      steps: 
+          - uses: actions/checkout@master
+          - name: copy file via ssh password
+            uses: appleboy/scp-action@master
+            with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              password: ${{ secrets.PASSWORD }}
+              port: ${{ secrets.PORT }}
+              source: "Documents/a.txt,Documents/arr.py"
+              target: "Documents"
