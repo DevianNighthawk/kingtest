@@ -133,6 +133,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
+          timeout:  100s
           source:  "tests/*"
           target: "home/ec2-user/"  
 
