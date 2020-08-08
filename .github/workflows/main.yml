@@ -49,6 +49,7 @@ jobs:
                 sudo apt-get install python3.7-dev
                 sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
                 python -m pip install --upgrade pip
+                pip install -r artifact/requirements.txt
                 pip install pytest
           - name: Checking where our home directory is
             run: | 
