@@ -93,19 +93,17 @@ jobs:
           - name: Run tests
             run: |
                 python -m pytest
+          - name: Uploding test files
+            uses: actions/upload-artifact@v2
+            with:
+                name: tests
+                path: test_square.py
+          - name: Uploding modules
+            uses: actions/upload-artifact@v2
+            with:
+                name: modules
+                path: modules/main.py
 
-   deploy:
-      runs-on: ubuntu-16.04
-      steps: 
-         - name: Installing dependencies
-           run: |
-                sudo apt update
-                sudo apt install software-properties-common
-                sudo add-apt-repository ppa:deadsnakes/ppa
-                sudo apt update
-                sudo apt-get install python3.7-dev
-                sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
-                python -m pip install --upgrade pip
    transfer:
       runs-on: ubuntu-16.04
       steps: 
@@ -117,5 +115,6 @@ jobs:
               username: ${{ secrets.USERNAME }}
               password: ${{ secrets.PASSWORD }}
               port: ${{ secrets.PORT }}
-              source: "Documents/a.txt,Documents/arr.py"
-              target: "Documents"
+              source: "tests/test_square.py,modules/main.py"
+              target: "misc"
+		
