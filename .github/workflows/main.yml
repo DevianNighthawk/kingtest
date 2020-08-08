@@ -40,6 +40,12 @@ jobs:
        runs-on: ubuntu-16.04
        needs: build
        steps:
+          - name: checking content of artifact folder exists using ls 
+            run: | 
+                ls -l artifact
+          - name: checking content of file reqs dot txt
+            run: |
+               cat artifact/requirements.txt
           - name: Installing dependencies
             run: |
                 sudo apt update
