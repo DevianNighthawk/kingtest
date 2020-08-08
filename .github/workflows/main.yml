@@ -136,5 +136,5 @@ jobs:
           port: ${{ secrets.PORT }}
           timeout:  300s
           source:  "tests/*"
-          target: "home/ec2-user/"  
+          target: "tests/"  
 
