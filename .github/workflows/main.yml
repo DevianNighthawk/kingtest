@@ -97,7 +97,7 @@ jobs:
             uses: actions/upload-artifact@v2
             with:
                 name: tests
-                path: test_square.py
+                path: tests/test_square.py
           - name: Uploding modules
             uses: actions/upload-artifact@v2
             with:
