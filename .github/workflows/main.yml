@@ -104,16 +104,3 @@ jobs:
                 name: modules
                 path: modules/main.py
 
-   transfer:
-      runs-on: ubuntu-16.04
-      steps: 
-          - uses: actions/checkout@master
-          - name: copy file via ssh password
-            uses: appleboy/scp-action@master
-            with:
-              host: ${{ secrets.HOST }}
-              username: ${{ secrets.USERNAME }}
-              password: ${{ secrets.PASSWORD }}
-              port: ${{ secrets.PORT }}
-              source: "Documents/arch.tar.gz"
-              target: "misc"
