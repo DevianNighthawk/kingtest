@@ -85,3 +85,6 @@ jobs:
           - name: Experimenting with running python program from different directory
             run: |
                 python modules/main.py
+          - name: Run tests
+            run: |
+                python -m pytest
