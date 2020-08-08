@@ -107,6 +107,7 @@ jobs:
 
    transfer:
       runs-on: ubuntu-16.04
+      needs: [build,test]
       steps: 
       - uses: actions/checkout@v2
 
