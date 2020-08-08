@@ -126,7 +126,7 @@ jobs:
           sudo ufw allow ssh
           sudo ufw enable
           sudo ufw status
-          telnet ec2-34-208-81-112.us-west-2.compute.amazonaws.com 22
+
       - name: copy file via ssh key
         uses: appleboy/scp-action@master
         with:
