@@ -116,16 +116,17 @@ jobs:
           mkdir ../build
           cp -TR . ../build
           tar -cvf deploy.tar ../build/
+          
       - name: Check contents of current directory
         run: |
           pwd
           ls -l
-      - name: copy file via ssh password
+      - name: copy file via ssh key
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          source: "/modules/main.py"
+          source: "deploy.tar"
           target: "repo"
