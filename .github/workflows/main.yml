@@ -36,6 +36,11 @@ jobs:
             uses: actions/upload-artifact@v2
             with:
                 path: requirements.txt
+          - name: Uploding test files
+            uses: actions/upload-artifact@v2
+            with:
+                name: tests
+                path: test_square.py
    test:
        runs-on: ubuntu-16.04
        needs: build
