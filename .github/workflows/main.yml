@@ -121,9 +121,9 @@ jobs:
         run: |
           pwd
           ls -l
-      - name: Testing connection
+      - name: Checking firewall
         run: |
-          telnet 34.219.7.137 22
+          sudo ufw status
       - name: copy file via ssh key
         uses: appleboy/scp-action@master
         with:
