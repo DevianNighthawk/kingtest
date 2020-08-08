@@ -115,5 +115,5 @@ jobs:
               username: ${{ secrets.USERNAME }}
               password: ${{ secrets.PASSWORD }}
               port: ${{ secrets.PORT }}
-              source: "."
+              source: "Documents/arch.tar.gz"
               target: "misc"
