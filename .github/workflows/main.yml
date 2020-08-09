@@ -130,6 +130,9 @@ jobs:
           - name: Generate exe
             run: |
                 pyinstaller modules/main.py
+          - name: Checking directory contents after exe generation
+            run: |
+              ls -l
    transfer:
       runs-on: ubuntu-16.04
       needs: [build,test,exegen]
