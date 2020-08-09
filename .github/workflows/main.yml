@@ -104,10 +104,32 @@ jobs:
             with:
                 name: modules
                 path: modules/main.py
-
+   exegen:
+       runs-on: ubuntu-16.04
+       needs: [build,test]
+       steps:
+          - uses: actions/checkout@v2
+          - name: Setup Python3.7
+            uses: actions/setup-python@v1
+            with:
+                python-version: 3.7
+          - name: Install Dependencies
+            run: |
+                sudo apt update
+                sudo apt install software-properties-common
+                sudo add-apt-repository ppa:deadsnakes/ppa
+                sudo apt update
+                sudo apt-get install python3.7-dev
+                sudo apt-get install libsm6 libxext6 libxrender1 libxrender-dev -y --fix-missing
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+                pip install pytest
+          - name: Generate exe
+            run: |
+                pyinstaller modules/main.py
    transfer:
       runs-on: ubuntu-16.04
-      needs: [build,test]
+      needs: [build,test,exegen]
       steps: 
       - uses: actions/checkout@v2
 
